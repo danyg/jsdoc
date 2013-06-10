@@ -240,6 +240,9 @@ function main() {
         app.jsdoc.parser.fireProcessingComplete(docs);
 
         if (env.opts.explain) {
+			if(env.opts.lenient){
+				console.log('\u0000\u0000');
+			}
             dump(docs);
             process.exit(0);
         }
