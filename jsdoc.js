@@ -18,7 +18,7 @@
 require('lib/jsdoc/util/global').env = {
     /**
      * Running start and finish times.
-     * 
+     *
      * @memberof env
      */
     run: {
@@ -36,7 +36,7 @@ require('lib/jsdoc/util/global').env = {
 
     /**
      * The parsed JSON data from the configuration file.
-     * 
+     *
      * @type Object
      * @memberof env
      */
@@ -44,7 +44,7 @@ require('lib/jsdoc/util/global').env = {
 
     /**
      * The absolute path to the base directory of the JSDoc application.
-     * 
+     *
      * @private
      * @deprecated Use `__dirname` instead.
      * @type string
@@ -54,7 +54,7 @@ require('lib/jsdoc/util/global').env = {
 
     /**
      * The command-line arguments, parsed into a key/value hash.
-     * 
+     *
      * @type Object
      * @memberof env
      * @example if (env.opts.help) { console.log('Helpful message.'); }
@@ -63,7 +63,7 @@ require('lib/jsdoc/util/global').env = {
 
     /**
      * The JSDoc version number and revision date.
-     * 
+     *
      * @type Object
      * @memberof env
      */
@@ -199,7 +199,7 @@ function main() {
     if (env.conf.plugins) {
         jsdoc.plugins.installPlugins(env.conf.plugins, app.jsdoc.parser);
     }
-    
+
     if (env.conf.source && env.conf.source.include) {
         env.opts._ = (env.opts._ || []).concat(env.conf.source.include);
     }
@@ -210,13 +210,13 @@ function main() {
             packageJson = fs.readFileSync( env.opts._[i], 'utf8' );
             env.opts._.splice(i--, 1);
         }
-        
+
         if (/(\bREADME|\.md)$/i.test(env.opts._[i])) {
             env.opts.readme = new jsdoc.Readme(env.opts._[i]).html;
             env.opts._.splice(i--, 1);
         }
     }
-    
+
     if (env.conf.source && env.opts._.length > 0) { // are there any files to scan and parse?
         filter = new jsdoc.src.filter.Filter(env.conf.source);
 
